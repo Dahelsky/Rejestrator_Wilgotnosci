@@ -34,7 +34,7 @@ void loop() {
    Wire.write(0x00);
    Wire.endTransmission();
    delay(100);
-   Wire.requestFrom(AHT10_ADDR,6); // odczyt 6 bajtów danych
+   Wire.requestFrom(AHT10_ADDR,6);
    if (Wire.available() == 6) {
       uint8_t data[6];
       for (int i = 0; i < 6; i++) {
