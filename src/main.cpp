@@ -9,7 +9,7 @@
 #define AHT10_TRIGGER_MEASUREMENT 0XAC
 void setup() {
 // write your initialization code here
-   Wire.begin(I2C_SDA,I2C_SCL);
+   Wire.begin(I2C_SDA,I2C_SCL, 10000);
    Serial.begin(115200);
    Serial.printf("Init complete");
 
@@ -34,7 +34,7 @@ void loop() {
    Wire.write(0x00);
    Wire.endTransmission();
    delay(100);
-   Wire.requestFrom(AHT10_ADDR,6);
+   Wire.requestFrom(AHT10_ADDR,6); // odczyt 6 bajtów danych
    if (Wire.available() == 6) {
       uint8_t data[6];
       for (int i = 0; i < 6; i++) {
