@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
+#include "aht10.h"
 
 #define I2C_SDA 8
 #define I2C_SCL 9
@@ -9,25 +10,14 @@
 #define AHT10_TRIGGER_MEASUREMENT 0XAC
 void setup() {
 // write your initialization code here
-   Wire.begin(I2C_SDA,I2C_SCL, 10000);
    Serial.begin(115200);
    Serial.printf("Init complete");
-
-   //Poczatek ustawien sensora
-   //pierwszy bajt - adres
-   Wire.beginTransmission(AHT10_ADDR); //adres aht10
-   //drugi bajt - komenda
-   Wire.write(AHT10_INIT); //inicjalizacja
-   //trzeci bajt - opcje stanu
-   Wire.write(0x00|(1<<6)|(1<<3)); //tryb cmd (tu chodzi o bity [6:5]) + tryb kalibracji [3]
-   Wire.write(0x00); //nop
-   Wire.endTransmission();
-   //delay(20); // min 20 ms opoznienia by sie to zresetowalo
-   delay(100);
+   aht10_init();
 }
 
 void loop() {
 // write your code here
+   Serial.printf("Getting data...");
    Wire.beginTransmission(AHT10_ADDR);
    Wire.write(AHT10_TRIGGER_MEASUREMENT);
    Wire.write(0x33);
