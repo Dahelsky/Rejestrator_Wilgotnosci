@@ -9,6 +9,7 @@
 #define PASS "PASS"
 #define MQTTSERVER "192.168.0.220"
 
+#define MQTT_TOPIC "esp32/hum"
 
 aht10Data aht10Data;
 
@@ -69,7 +70,7 @@ void loop() {
          char buffer[10];
          snprintf(buffer,sizeof(buffer), "%.2f", aht10Data.humidity);
          Serial.print(buffer);
-         mqttClient.publish("esp32/hum", buffer)
+         mqttClient.publish(MQTT_TOPIC, buffer)
       }
       else
          Serial.printf("Blad odczytu");
