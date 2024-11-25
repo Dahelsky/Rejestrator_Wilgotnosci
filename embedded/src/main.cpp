@@ -7,7 +7,7 @@
 // tu wstawić swoje parametry
 #define SSID "SSID"
 #define PASS "PASS"
-#define MQTTSERVER "192.168.0.220"
+#define MQTTSERVER "MQTT"
 
 #define MQTT_TOPIC "esp32/hum"
 
