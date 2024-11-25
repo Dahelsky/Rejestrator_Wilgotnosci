@@ -14,8 +14,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd5f3ff3-446c-44ef-97d1-ecfc16988e52" name="Changes" comment="Przesyłanie danych przez mqtt">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="cd5f3ff3-446c-44ef-97d1-ecfc16988e52" name="Changes" comment="Test działania IDE po refactorze">
+      <change afterPath="$PROJECT_DIR$/src/secret.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
@@ -36,6 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
         <entry key="$PROJECT_DIR$" value="mqtt-publishing" />
       </map>
     </option>
@@ -49,12 +53,12 @@
     &quot;assignee&quot;: &quot;alkatranz&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Dahelsky/Rejestrator_Wilgotnosci.git",
-    "accountId": "16d95c1a-2e4a-4299-ab22-87ee2ae4361d"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dahelsky/Rejestrator_Wilgotnosci.git&quot;,
+    &quot;accountId&quot;: &quot;16d95c1a-2e4a-4299-ab22-87ee2ae4361d&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.platformio/packages/framework-arduinoespressif32/cores/esp32/Client.h" root0="FORCE_HIGHLIGHTING" />
@@ -64,10 +68,9 @@
     <setting file="file://$USER_HOME$/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-gpio.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-i2c.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_common/include/esp_err.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.platformio/packages/toolchain-riscv32-esp@8.4.0+2021r2-patch5/lib/gcc/riscv32-esp-elf/8.4.0/include/stddef.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.pio/libdeps/esp32-c3-devkitm-1/PubSubClient/examples/mqtt_publish_in_callback/mqtt_publish_in_callback.ino" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.pio/libdeps/esp32-c3-devkitm-1/PubSubClient/src/PubSubClient.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/.pio/libdeps/esp32-c3-devkitm-1/PubSubClient/src/PubSubClient.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.pio/libdeps/esp32-c3-devkitm-1/PubSubClient/src/PubSubClient.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/aht10.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/aht10.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -125,7 +128,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "mqtt-server-in-docker",
     "last_opened_file_path": "E:/Stydem/Telemed/Rejestrator_Wilgotnosci/embedded",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -143,9 +146,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="PlatformIO" type="platformio" factoryName="PlatformIO Debug" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="embedded" TARGET_NAME="PlatformIO" CONFIG_NAME="PlatformIO">
@@ -197,7 +200,8 @@
       <workItem from="1732550141759" duration="1742000" />
       <workItem from="1732553935381" duration="123000" />
       <workItem from="1732554277035" duration="703000" />
-      <workItem from="1732559104994" duration="83000" />
+      <workItem from="1732559104994" duration="2076000" />
+      <workItem from="1732570470654" duration="1918000" />
     </task>
     <task id="LOCAL-00001" summary="Początek projektu">
       <option name="closed" value="true" />
@@ -271,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732553653528</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Test działania IDE po refactorze">
+      <option name="closed" value="true" />
+      <created>1732559219227</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732559219227</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +309,7 @@
     <MESSAGE value="Przekształcenie inicjalizacji do postaci funkcji" />
     <MESSAGE value="Odczyt danych z sensora w osobnej funkcji" />
     <MESSAGE value="Przesyłanie danych przez mqtt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Przesyłanie danych przez mqtt" />
+    <MESSAGE value="Test działania IDE po refactorze" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test działania IDE po refactorze" />
   </component>
 </project>
