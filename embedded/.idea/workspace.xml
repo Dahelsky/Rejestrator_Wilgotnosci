@@ -14,13 +14,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd5f3ff3-446c-44ef-97d1-ecfc16988e52" name="Changes" comment="Test działania IDE po refactorze">
-      <change afterPath="$PROJECT_DIR$/src/secret.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+    <list default="true" id="cd5f3ff3-446c-44ef-97d1-ecfc16988e52" name="Changes" comment="MQTT Broker na Dockerze">
+      <change beforePath="$PROJECT_DIR$/src/secret.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/secret.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +196,7 @@
       <workItem from="1732553935381" duration="123000" />
       <workItem from="1732554277035" duration="703000" />
       <workItem from="1732559104994" duration="2076000" />
-      <workItem from="1732570470654" duration="1918000" />
+      <workItem from="1732570470654" duration="1992000" />
     </task>
     <task id="LOCAL-00001" summary="Początek projektu">
       <option name="closed" value="true" />
@@ -283,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732559219227</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="MQTT Broker na Dockerze">
+      <option name="closed" value="true" />
+      <created>1732572469921</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1732572469921</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +313,7 @@
     <MESSAGE value="Odczyt danych z sensora w osobnej funkcji" />
     <MESSAGE value="Przesyłanie danych przez mqtt" />
     <MESSAGE value="Test działania IDE po refactorze" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test działania IDE po refactorze" />
+    <MESSAGE value="MQTT Broker na Dockerze" />
+    <option name="LAST_COMMIT_MESSAGE" value="MQTT Broker na Dockerze" />
   </component>
 </project>
