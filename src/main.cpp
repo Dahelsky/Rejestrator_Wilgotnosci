@@ -70,7 +70,7 @@ void loop() {
          char buffer[10];
          snprintf(buffer,sizeof(buffer), "%.2f", aht10Data.humidity);
          Serial.print(buffer);
-         mqttClient.publish(MQTT_TOPIC, buffer)
+         mqttClient.publish(MQTT_TOPIC, buffer);
       }
       else
          Serial.printf("Blad odczytu");
