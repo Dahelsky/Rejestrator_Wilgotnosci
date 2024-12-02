@@ -1,3 +1,10 @@
+﻿docker/mqtt-broker/data
+docker/mqtt-broker/log
+docker/mqtt-data-processor/data.db
+embedded/.idea
+embedded/.pio
+docker/container_shared/db/data.db
+docker/grafana/plugins
 ﻿embedded/src/secret.h
 embedded/src/secret.h
 embedded/src/secret.h

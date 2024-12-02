@@ -1,0 +1,106 @@
+{
+    "id": 1,
+    "type": "timeseries",
+    "title": "Panel Title",
+    "gridPos": {
+      "x": 0,
+      "y": 0,
+      "h": 8,
+      "w": 12
+    },
+    "fieldConfig": {
+      "defaults": {
+        "custom": {
+          "drawStyle": "line",
+          "lineInterpolation": "smooth",
+          "barAlignment": 0,
+          "barWidthFactor": 0.6,
+          "lineWidth": 1,
+          "fillOpacity": 13,
+          "gradientMode": "none",
+          "spanNulls": false,
+          "insertNulls": false,
+          "showPoints": "auto",
+          "pointSize": 5,
+          "stacking": {
+            "mode": "none",
+            "group": "A"
+          },
+          "axisPlacement": "left",
+          "axisLabel": "Humidity",
+          "axisColorMode": "text",
+          "axisBorderShow": false,
+          "scaleDistribution": {
+            "type": "linear"
+          },
+          "axisCenteredZero": false,
+          "hideFrom": {
+            "tooltip": false,
+            "viz": false,
+            "legend": false
+          },
+          "thresholdsStyle": {
+            "mode": "off"
+          },
+          "axisGridShow": true,
+          "lineStyle": {
+            "fill": "solid"
+          }
+        },
+        "color": {
+          "mode": "continuous-BlYlRd",
+          "seriesBy": "last"
+        },
+        "mappings": [],
+        "thresholds": {
+          "mode": "absolute",
+          "steps": [
+            {
+              "color": "green",
+              "value": null
+            },
+            {
+              "color": "red",
+              "value": 80
+            }
+          ]
+        },
+        "decimals": 2,
+        "fieldMinMax": false
+      },
+      "overrides": []
+    },
+    "pluginVersion": "11.3.1",
+    "targets": [
+      {
+        "datasource": {
+          "type": "frser-sqlite-datasource",
+          "uid": "P0CD8666848BF286D"
+        },
+        "queryText": "SELECT CAST(strftime('%s', timestamp, '-1 minute') as INTEGER) as time, humidity as value \nFROM mqtt_data\nWHERE time >= 1733094892877 / 1000 and time < 1733098492877 / 1000\n\n\n",
+        "queryType": "table",
+        "rawQueryText": "SELECT CAST(strftime('%s', timestamp, '-1 minute') as INTEGER) as time, humidity as value \nFROM mqtt_data\nWHERE time >= $__from / 1000 and time < $__to / 1000\n\n\n",
+        "refId": "A",
+        "timeColumns": [
+          "time",
+          "ts"
+        ]
+      }
+    ],
+    "datasource": {
+      "type": "frser-sqlite-datasource",
+      "uid": "P0CD8666848BF286D"
+    },
+    "options": {
+      "tooltip": {
+        "mode": "single",
+        "sort": "none"
+      },
+      "legend": {
+        "showLegend": true,
+        "displayMode": "list",
+        "placement": "bottom",
+        "calcs": []
+      }
+    }
+  }

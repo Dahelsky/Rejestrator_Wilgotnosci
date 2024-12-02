@@ -3,11 +3,33 @@ services:
   mqtt-broker:
     image: eclipse-mosquitto
     build:
-      context: .
+      context: ./mqtt-broker
     ports:
       - 1883:1883 #  mqtt port
       - 9001:9001 #  websocket port
     volumes:
-      - ./config:/mosquitto/config
-      - ./data:/mosquitto/data
-      - ./log:/mosquitto/log
+      - ./mqtt-broker/config:/mosquitto/config
+      - ./mqtt-broker/data:/mosquitto/data
+      - ./mqtt-broker/log:/mosquitto/log
+  mqtt-data-processor:
+    image: python
+    build:
+      context: ./mqtt-data-processor
+    volumes:
+      - ./mqtt-data-processor:/app
+      - ./container_shared/db:/app/db
+    depends_on:
+      - mqtt-broker
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./container_shared/db:/var/lib/sqlite
+      - ./grafana/plugins:/var/lib/grafana/plugins
+      - ./grafana/provisioning:/etc/grafana/provisioning
+     # - ./grafana/data:/var/lib/grafana
+    environment:
+      - GF_INSTALL_PLUGINS=frser-sqlite-datasource
+    user: "1000"
