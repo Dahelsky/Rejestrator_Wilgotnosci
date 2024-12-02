@@ -62,6 +62,7 @@ bool aht10_read_on_command(aht10Data& aht10Data) {
         rawTemperature |= data[5];
         aht10Data.temperature = ((200*rawTemperature)/1048576.0) - 50;  //wzór z datasheetu aht10
 
+        //opoźnienie zalecane przez producenta
         delay(1000);
         return true;
     }

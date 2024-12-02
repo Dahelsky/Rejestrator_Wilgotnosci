@@ -3,31 +3,16 @@
 #include <PubSubClient.h>
 #include "aht10.h"
 
-
-// jesli istnieje plik secret.h to ma go includowac
-// secret.h ma define'y z SSID, PASS i MQTTSERVER
-// nie chce mi sie z każdym commitem chować danych sieci
-#define SECRET
-
-#ifdef SECRET
-#include "secret.h" //plik z parametrami sieci wifi
-#endif
-
-// tu wstawić swoje parametry
-#ifndef SSID
-#define SSID "SSID"
-#endif
-#ifndef PASS
-#define PASS "PASS"
-#endif
-#ifndef MQTTSERVER
-#define MQTTSERVER "MQTTSERVER"
-#endif
-
+#include "secret.h"  //plik z parametrami sieci wifi, zawiera:
+                     // SSID (nazwa sieci),
+                     // PASS (hasło),s
+                     // MQTTSERVER (adres brokera MQTT)
 #define MQTT_TOPIC "esp32/hum"
+#define SENSOR_INTERVAL 30000 //co ile (w ms) ma wykonywać pomiar
+
+//#define DEBUG
 
 aht10Data aht10Data;
-
 
 WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
@@ -53,8 +38,10 @@ void loop() {
    // sprawdzenie łączności WiFi
    if(WiFi.status() != WL_CONNECTED) {
       if(now - wifiCheckLastTime > 5000) {
+#ifdef DEBUG
          Serial.print("\nWiFi error: ");
          Serial.println(WiFi.status());
+#endif
          wifiCheckLastTime = now;
          WiFi.begin(SSID, PASS);
          delay(100);
@@ -65,8 +52,10 @@ void loop() {
    // sprawdzenie łączności MQTT
    if(mqttClient.state() != MQTT_CONNECTED) {
       if(now - mqttCheckLastTime > 5000) {
+#ifdef DEBUG
          Serial.print("\nMQTT error: ");
          Serial.println((int)mqttClient.state());
+#endif
          mqttCheckLastTime = now;
          mqttClient.connect("esp32-hum-sensor");
          delay(100);
@@ -74,21 +63,28 @@ void loop() {
    }
 
    // odczyt z sensora
-   if(now - sensorCheckLastTime >4000) {
-      //Serial.print(now - sensorCheckLastTime);
+   uint16_t sensorInterval;
+   SENSOR_INTERVAL > 4000 ? sensorInterval = SENSOR_INTERVAL - 1000 : sensorInterval = 4000;
+   if(now - sensorCheckLastTime >(sensorInterval)) {
+#ifdef DEBUG
       Serial.printf("\nOdczyt danych...\n");
+#endif
       //wysłanie sygnału odczytu do aht10
       sensorCheckLastTime = now;
       if(aht10_read_on_command(aht10Data)) {
          //Pobranie zmierzona i obliczona wiglotnosc
-         Serial.print("Wilgotnosc: ");
          char buffer[10];
          snprintf(buffer,sizeof(buffer), "%.2f", aht10Data.humidity);
-         Serial.print(buffer);
          mqttClient.publish(MQTT_TOPIC, buffer);
+#ifndef DEBUG
+      }
+#else
+         Serial.print("Wilgotnosc: ");
+         Serial.print(buffer);
       }
       else
          Serial.printf("Blad odczytu");
+#endif
    }
    mqttClient.loop();
 }
