@@ -2,6 +2,7 @@ name: Rejestrator_Wilgotnosci
 services:
   mqtt-broker:
     image: eclipse-mosquitto
+    container_name: mqtt-broker
     build:
       context: ./mqtt-broker
     ports:
@@ -13,6 +14,7 @@ services:
       - ./mqtt-broker/log:/mosquitto/log
   mqtt-data-processor:
     image: python
+    container_name: mqtt-data-processor
     build:
       context: ./mqtt-data-processor
     volumes:
@@ -29,7 +31,8 @@ services:
       - ./container_shared/db:/var/lib/sqlite
       - ./grafana/plugins:/var/lib/grafana/plugins
       - ./grafana/provisioning:/etc/grafana/provisioning
-     # - ./grafana/data:/var/lib/grafana
+      - ./grafana/data:/var/lib/grafana
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
     environment:
       - GF_INSTALL_PLUGINS=frser-sqlite-datasource
     user: "1000"
