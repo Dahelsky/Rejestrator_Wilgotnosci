@@ -6,8 +6,8 @@ services:
     build:
       context: ./mqtt-broker
     ports:
-      - 1883:1883 #  mqtt port
-      - 9001:9001 #  websocket port
+      - 1883:1883
+      - 9001:9001
     volumes:
       - ./mqtt-broker/config:/mosquitto/config
       - ./mqtt-broker/data:/mosquitto/data
@@ -29,9 +29,9 @@ services:
       - "3000:3000"
     volumes:
       - ./container_shared/db:/var/lib/sqlite
-      - ./grafana/plugins:/var/lib/grafana/plugins
       - ./grafana/provisioning:/etc/grafana/provisioning
       - ./grafana/data:/var/lib/grafana
+      - ./grafana/plugins:/var/lib/grafana/plugins
       - ./grafana/dashboards:/var/lib/grafana/dashboards
     environment:
       - GF_INSTALL_PLUGINS=frser-sqlite-datasource
