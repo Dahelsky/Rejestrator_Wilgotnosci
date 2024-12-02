@@ -5,6 +5,4 @@ embedded/.idea
 embedded/.pio
 docker/container_shared/db/data.db
 docker/grafana/plugins
-﻿embedded/src/secret.h
-embedded/src/secret.h
 embedded/src/secret.h
